@@ -41,9 +41,14 @@
 			}
 		}
 
-		function removeHint() {
-			if ($(this).hasClass(options.hintClass)) $(this).removeClass(options.hintClass).val('');
-		}
+        function removeHint() {
+            if ($(this).hasClass(options.hintClass)) {
+                $(this).removeClass(options.hintClass).val('')
+                if (this.createTextRange) {
+                    this.createTextRange().select();
+                }
+            };
+        }
 		
 		this.filter(function() { return !!hintFor(this); })
 			.focus(removeHint).blur(showHint).blur();
