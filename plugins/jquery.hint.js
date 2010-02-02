@@ -29,7 +29,7 @@
 		function hintFor(element) {
 			var h;
 			if (options.using && (h = $(options.using, element)).length > 0) {
-				return h.text();
+				return h.hide().text();
 			} else {
 				return $(element).attr(options.hintAttr) || '';
 			}
